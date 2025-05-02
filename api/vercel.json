@@ -1,0 +1,50 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "pages/**/*.php",
+      "use": "@vercel/php"
+    },
+    {
+      "src": "index.php",
+      "use": "@vercel/php"
+    },
+    {
+      "src": "includes/**/*.php",
+      "use": "@vercel/php"
+    },
+    {
+      "src": "components/**/*.php",
+      "use": "@vercel/php"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/assets/(.*)",
+      "dest": "/assets/$1"
+    },
+    {
+      "src": "/components/(.*)",
+      "dest": "/components/$1"
+    },
+    {
+      "src": "/includes/(.*)",
+      "dest": "/includes/$1"
+    },
+    {
+      "src": "/pages/(.*)",
+      "dest": "/pages/$1"
+    },
+    {
+      "src": "/",
+      "dest": "/pages/index.php"
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/pages/404.php"
+    }
+  ]
+}
